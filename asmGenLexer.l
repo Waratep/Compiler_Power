@@ -1,4 +1,3 @@
-/* NAS V0.3 */
 
 %option noyywrap caseless
 

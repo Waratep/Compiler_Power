@@ -68,7 +68,7 @@ char text[500];
 <S>\\t		{ strcat(text, "\\t"); }
 <S>\\		{ strcat(text, "\\\\"); }
 
-[ \t\n]+    ;       /* ignore whitespace */
+[ \t\n]+    {}       /* ignore whitespace */
 
 '\\n'		{ yylval.sValue = "\'\\n\'"; return CHARACTER; }
 '\\t'		{ yylval.sValue = "\'\\t\'"; return CHARACTER; }
@@ -92,7 +92,7 @@ char text[500];
 	    }
 
 
-.           yyerror("Unknown character");
+.           {};
 
 %%
 
