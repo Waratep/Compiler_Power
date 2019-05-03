@@ -1,0 +1,31 @@
+
+array yy[8];
+yy[0] = 6d;
+yy[1] = 3d;
+yy[2] = 2d;
+yy[3] = 1d;
+yy[4] = 1d;
+yy[5] = 2d;
+yy[6] = 3d;
+yy[7] = 6d;
+
+i = 0d;
+j = 7d;
+counter = 0d;
+goal = 4;
+
+thumsum(i noigua j){
+    tha(yy[i] thaogun yy[j]){
+        counter = counter + 1d;
+    }maikor{
+        counter = counter - 1d;
+    }
+    i = i + 1d;
+    j = j - 1d;
+}
+
+tha(counter thaogun goal){
+    sadangSln("Yes Palindom");
+}maikor{
+    sadangSln("No Palindom");
+}
