@@ -1,16 +1,16 @@
-all: asmGen main
+all: runAsm main
 
-asmGen: asmGen.c asmGenParser.tab.c asmGenParser.tab.h
-	gcc -o asmGen asmGen.c asmGenParser.tab.c
+runAsm: runAsm.c runAsmParser.tab.c runAsmParser.tab.h
+	gcc -o runAsm runAsm.c runAsmParser.tab.c
 
-asmGen.c: asmGenLexer.l
-	flex -o asmGen.c asmGenLexer.l
+runAsm.c: runAsmLexer.l
+	flex -o runAsm.c runAsmLexer.l
 
-asmGenParser.tab.h asmGenParser.tab.c: asmGenParser.y
-	bison -d asmGenParser.y
+runAsmParser.tab.h runAsmParser.tab.c: runAsmParser.y
+	bison -d runAsmParser.y
 
-cleanasmGen:
-	$(RM) asmGen.c asmGen asmGenParser.tab.c asmGenParser.tab.h
+cleanrunAsm:
+	$(RM) runAsm.c runAsm runAsmParser.tab.c runAsmParser.tab.h
 
 
 main: lex.yy.c y.tab.c main.c
@@ -26,6 +26,4 @@ y.tab.c: mainParser.y
 cleanmain:
 	$(RM) lex.yy.c y.tab.c y.tab.h main
 
-A3: asmGen main
-
-cleanall: cleanasmGen cleanmain
+cleanall: cleanrunAsm cleanmain

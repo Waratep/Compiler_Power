@@ -26,10 +26,6 @@ char text[500];
                 return INTEGER;
             }
 
-[0-9a-fA-F]+[hH]* {
-                yylval.iValue = strToHex(yytext);
-                return INTEGER;
-            }
 
 [-()<>=+*/,;{}.%\[\]@] {
                 return *yytext;
@@ -92,6 +88,10 @@ char text[500];
 	    }
 
 
+[0-9a-fA-F]+[hH]* {
+                yylval.iValue = strToHex(yytext);
+                return INTEGER;
+            }
 .           {};
 
 %%
